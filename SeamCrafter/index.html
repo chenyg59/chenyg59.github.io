@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="ArtUV: Artist-style UV Unwrapping">
+    <meta name="keywords" content="UV unwrapping, Artist-style, Auto-Encoder">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ArtUV: Artist-style UV Unwrapping</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+
+    <style>
+		.render_wrapper {
+			position: relative;
+            height: 300px;
+         }
+        .render_wrapper_small {
+			position: relative;
+            height: 200px;
+         }
+		.render_div {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+        #interpolation-image-wrapper-car{
+            text-align: center;
+        }
+        #interpolation-image-wrapper-chair{
+            text-align: center;
+        }
+        .nested-columns {
+            margin-bottom: 0 !important;
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title">ArtUV: Artist-style UV Unwrapping</h1>    
+                        <div class="is-size-4 publication-authors">
+                            <span class="author-block">
+                                <a href="https://chenyg59.github.io/">Yuguang Chen</a><sup>1,2*</sup>,
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>SUN YAT-SEN UNIVERSITY,</span>
+                            <span class="author-block"><sup>2</sup>Tencent Hunyuan,</span>
+                        </div>
+                        <div class="is-size-6 has-text-centered" style="margin-top: 1rem;">
+                            <sup>*</sup> Indicates Equal Contribution &nbsp;&nbsp;&nbsp;&nbsp; <sup>†</sup> Indicates Corresponding Author
+                          </div>
+                
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <span class="link-block">
+                                    <a class="external-link button is-normal is-rounded is-dark" href="https://arxiv.org/abs/xxxx">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>ArXiv</span>
+                                    </a>
+                                </span>
+                                <!-- Github Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/hitcslj/Mesh-RFT" class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="fab fa-github"></i>
+                                        </span>
+                                        <span>Code(Coming Soon)</span>
+                                    </a>
+                                </span>
+                                <!-- Dataset Link. -->
+                                <span class="link-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Paper abstract -->
+   <section class="hero is-light is-small">
+    <div class="container is-max-desktop">
+        <h2 class="title is-3" style="text-align: center;">Abstract</h2>
+        <div class="content has-text-justified">
+            <p>
+                UV unwrapping is an essential task in computer graphics, enabling various visual editing operations in rendering pipelines. 
+				However, existing UV unwrapping methods struggle with time-consuming, fragmentation, lack of semanticity, and irregular UV islands, limiting their practical use. 
+				An artist-style UV map must not only satisfy fundamental criteria, such as overlap-free mapping and minimal distortion, but also uphold higher-level standards, including clean boundaries, efficient space utilization, and semantic coherence.
+				We introduce ArtUV, a fully automated, end-to-end method for generating artist-style UV unwrapping.
+				We simulates the professional UV mapping process by dividing it into two stages: surface seam prediction and artist-style UV parameterization. 
+				In the seam prediction stage, SeamGPT is used to generate semantically meaningful cutting seams. 
+				Then, in the parameterization stage, a rough UV obtained from an optimization-based method, along with the mesh, is fed into an Auto-Encoder, which refines it into an artist-style UV map. 
+				Our method ensures semantic consistency and preserves topological structure, making the UV map ready for 2D editing. 
+				We evaluate ArtUV across multiple benchmarks and show that it serves as a versatile solution, functioning seamlessly as either a plug-in for professional rendering tools or as a standalone system for rapid, high-quality UV generation.
+            </p>
+        </div>
+        <h2 class="title is-3" style="text-align: center;">Method</h2>
+        <img width="1450px" src="./static/images/pipeline.png" alt="MY ALT TEXT"/> 
+        <div class="content has-text-justified">
+            <p>
+            <b>ArtUV pipeline.</b>
+            	First, SeamGPT is used to predict the semantically meaningful seams on the input mesh surface. 
+				Based on these cutting line, the mesh is segmented into charts. For each chart, Ministretch-Unwrap is used to quickly generate the initial UV map. 
+				This initial UV map is then input into the ArtUV parameterization module to Optimize the artist-style UV map.
+            </p>
+        </div>
+		<h2 class="title is-3" style="text-align: center;">Architecture</h2>
+        <img width="1450px" src="./static/images/architecture.png" alt="MY ALT TEXT"/> 
+        <div class="content has-text-justified">
+            <p>
+            <b>ArtUV parameterization architecture.</b>
+            	Res-M MLP: Performs importance-based dimension mapping of input parameters; 
+				SAGEConv: Fuses local features between adjacent vertices via graph convolution; 
+				Pyramid ED: Enables global vertex interaction through attention encoder and coarse-to-fine decoder; 
+				Output: Combines predicted offsets with initial map for final UV parameterization.
+            </p>
+        </div>
+		<h2 class="title is-3" style="text-align: center;">Qualitative Result</h2>
+        <img width="1450px" src="./static/images/ArtUV_result.png" alt="MY ALT TEXT"/> 
+        <div class="content has-text-justified">
+            <p>
+            <b>Qualitative Result on ArtUV-200K.</b>
+            	(a) The input mesh and reference texture image. 
+				(b)-(e) Results of our method, along with Blender, Maya, and 3DsMax. 
+				For each method, the upper-left image shows the UV unwrapping visualized using normal directions, the lower-left image displays the texture map based on the reference texture, 
+				with the value below the texture map representing the UV utilization rate, and the right image presents the 3D model with a checkerboard texture.
+            </p>
+        </div>
+		
+    </div>
+ 
+    
+</section>
+
+<script>
+    window.addEventListener("DOMContentLoaded", function() {
+        // 初始化时调整GIF尺寸
+        adjustGifSizes();
+        
+        // 窗口大小变化时重新调整
+        window.addEventListener('resize', adjustGifSizes);
+        
+        function adjustGifSizes() {
+            const gifs = document.querySelectorAll('img[id^="animation-"]');
+            gifs.forEach(gif => {
+                gif.style.width = '500px';
+                gif.style.height = '500px';
+            });
+        }
+    });
+</script>
+ 
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title is-4">BibTeX</h2>
+            <pre>
+                <code>@misc{liu2025meshrftenhancingmeshgeneration,
+                    title={ArtUV: Artist-style UV Unwrapping}, 
+                    author={Yuguang Chen},
+                    year={2025},
+                    eprint={xxx},
+                    archivePrefix={arXiv},
+                    primaryClass={cs.CV},
+                    url={https://arxiv.org/abs/xxx}, 
+              }</code>
+            </pre>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <a class="icon-link" href="https://hitcslj.github.io/" class="external-link">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p style="text-align:center">
+                            Source code mainly borrowed from <a href="https://keunhong.com/">Keunhong Park</a>'s <a
+                                href="https://nerfies.github.io/">Nerfies website</a>.
+                        </p>
+                        <p style="text-align:center">
+                            Please contact <a href="https://chenyg59.github.io/">Yuguang Chen</a> for feedback and questions.
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+
+</body>
+
+</html>
