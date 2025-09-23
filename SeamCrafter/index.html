@@ -211,6 +211,25 @@
 	</section>
 </section>
 
+<style>
+/* 统一 column 样式 */
+.result-column {
+    flex: 1;
+    text-align: center;
+}
+
+/* 统一 model-viewer 和图片大小 */
+.result-column model-viewer,
+.result-column img {
+    width: 100%;
+    max-width: 400px;  /* 最大宽度 */
+    height: 400px;     /* 高度统一 */
+    object-fit: contain; /* 保持图片比例缩放 */
+    display: block;
+    margin: 0 auto;
+}
+</style>
+	
     <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
             <h2 class="title is-4">BibTeX</h2>
