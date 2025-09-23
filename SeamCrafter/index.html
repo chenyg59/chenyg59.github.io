@@ -211,25 +211,6 @@
     
 </section>
 
-<script>
-    window.addEventListener("DOMContentLoaded", function() {
-        // 初始化时调整GIF尺寸
-        adjustGifSizes();
-        
-        // 窗口大小变化时重新调整
-        window.addEventListener('resize', adjustGifSizes);
-        
-        function adjustGifSizes() {
-            const gifs = document.querySelectorAll('img[id^="animation-"]');
-            gifs.forEach(gif => {
-                gif.style.width = '500px';
-                gif.style.height = '500px';
-            });
-        }
-    });
-</script>
- 
-
     <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
             <h2 class="title is-4">BibTeX</h2>
