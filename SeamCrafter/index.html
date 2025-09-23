@@ -49,7 +49,8 @@
     <script src="./static/js/bulma-carousel.min.js"></script>
     <script src="./static/js/bulma-slider.min.js"></script>
     <script src="./static/js/index.js"></script>
-	
+	<!-- 引入 model-viewer 脚本 -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 
 <body>
@@ -167,6 +168,46 @@
             </p>
         </div>
     </div>
+
+	<section class="section">
+        <div class="container is-max-desktop">
+            <h2 class="title is-3" style="text-align: center;">Results</h2>
+            <div class="columns is-mobile is-centered is-vcentered" style="margin: 0;">
+                <!-- 第一个元素：模型查看器 -->
+                <div class="column" style="flex: 1;">
+                    <model-viewer style="height: 400px; width: 400px;" rotation-per-second="10deg"
+                        src="./static/models/mesh_uv.glb"
+                        environment-image="neutral" camera-target="0m 0m 0m" orientation="0deg 0deg 170deg"
+                        shadow-intensity="1" ar auto-rotate camera-controls>
+                    </model-viewer>
+                    <div style="margin-top: 8px; font-weight: bold; text-align: center;">mesh</div>
+                </div>
+
+                <!-- 第二个元素：图片1 -->
+                <div class="column" style="flex: 1; text-align: center;">
+                    <a href="uv_map.png" download>
+                        <img style="max-height: 400px; max-width: 100%; height: auto;" src="uv_map.png">
+                    </a>
+                    <div style="margin-top: 8px; font-weight: bold;">uv_map</div>
+                </div>
+
+                <!-- 第三个元素：图片2 -->
+                <div class="column" style="flex: 1; text-align: center;">
+                    <a href="distortion_map.png" download>
+                        <img style="max-height: 400px; max-width: 100%; height: auto;" src="distortion_map.png">
+                    </a>
+                    <div style="margin-top: 8px; font-weight: bold;">distortion_map</div>
+                </div>
+
+                <!-- 第四个元素：图片3 -->
+                <div class="column" style="flex: 1; text-align: center;">
+                    <a href="overlap_map.png" download>
+                        <img style="max-height: 400px; max-width: 100%; height: auto;" src="overlap_map.png">
+                    </a>
+                    <div style="margin-top: 8px; font-weight: bold;">overlap_map</div>
+                </div>
+            </div>
+        </div>
     
 </section>
 
