@@ -49,6 +49,11 @@
     <script src="./static/js/bulma-carousel.min.js"></script>
     <script src="./static/js/bulma-slider.min.js"></script>
     <script src="./static/js/index.js"></script>
+	
+	<!-- Three.js & GLTFLoader -->
+	<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/controls/OrbitControls.js"></script>
 </head>
 
 <body>
@@ -166,7 +171,83 @@
             </p>
         </div>
     </div>
- 
+
+<!-- New Results Section -->
+<section class="section" id="results">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+    <div class="columns is-multiline">
+      <div class="column is-half">
+        <div class="result-viewer" id="viewer1"></div>
+        <p class="has-text-centered">Result 1</p>
+      </div>
+      <div class="column is-half">
+        <div class="result-viewer" id="viewer2"></div>
+        <p class="has-text-centered">Result 2</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+    window.addEventListener("DOMContentLoaded", function() {
+        // 初始化时调整GIF尺寸
+        adjustGifSizes();
+        
+        // 窗口大小变化时重新调整
+        window.addEventListener('resize', adjustGifSizes);
+        
+        function adjustGifSizes() {
+            const gifs = document.querySelectorAll('img[id^="animation-"]');
+            gifs.forEach(gif => {
+                gif.style.width = '500px';
+                gif.style.height = '500px';
+            });
+        }
+    });
+
+    // Three.js viewer 初始化函数
+    function initViewer(containerId, modelPath) {
+        const container = document.getElementById(containerId);
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xf5f5f5);
+
+        const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+        camera.position.set(2, 2, 2);
+
+        const renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        container.appendChild(renderer.domElement);
+
+        const light1 = new THREE.DirectionalLight(0xffffff, 1);
+        light1.position.set(5, 5, 5);
+        scene.add(light1);
+        scene.add(new THREE.AmbientLight(0x888888));
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+        const loader = new THREE.GLTFLoader();
+        loader.load(modelPath, function(gltf) {
+            scene.add(gltf.scene);
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = container.clientWidth / container.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(container.clientWidth, container.clientHeight);
+        });
+    }
+
+    // 初始化两个 glb viewer
+    initViewer("viewer1", "./static/models/result1.glb");
+</script>
     
 </section>
 
