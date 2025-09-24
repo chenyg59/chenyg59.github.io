@@ -1,116 +1,171 @@
 <!DOCTYPE html>
-
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta content="IE=5.0000" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Jian Liu's home page">
-  
-  <link href="./files/wfdoc.css" rel="stylesheet" type="text/css"> 
-  <title>Yuguang Chen's Homepage</title>
-  <meta name="GENERATOR" content="MSHTML 11.00.10570.1001">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yuguang Chen | Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yuguang Chen's personal academic homepage">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: #f9fafc;
+      color: #333;
+      line-height: 1.6;
     }
-    #layout-content {
-      margin: 25px auto;   /* 上下 25px，左右自动居中 */
-      width: 960px;        /* 固定宽度，必要 */
+    header {
+      background: linear-gradient(135deg, #004aad, #0077ff);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
     }
-    table {
-      border-collapse: collapse;
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
     }
-    td {
-      vertical-align: top;
+    header h3 {
+      font-weight: 400;
+      margin-top: .5rem;
     }
-    h1, h2 {
-      margin-top: 20px;
+    .container {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .profile {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    .profile img {
+      width: 220px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .profile-info {
+      flex: 1;
+    }
+    .profile-info h2 {
+      margin-top: 0;
+    }
+    a {
+      color: #004aad;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    section {
+      margin-top: 3rem;
+    }
+    section h2 {
+      font-size: 1.5rem;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: .5rem;
+      margin-bottom: 1rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    .pub-table {
+      width: 100%;
+      border-spacing: 0;
+    }
+    .pub-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .pub-item img {
+      width: 120px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      padding: 1.5rem;
+      background: #f0f0f5;
+      font-size: 0.9rem;
+      color: #555;
     }
   </style>
 </head>
+<body>
 
+<header>
+  <h1>Yuguang Chen 陈豫广</h1>
+  <h3>PhD Student · HKUST</h3>
+</header>
 
-<script>
-  function hideshow(x) {
-    // var x = document.getElementById("toolbox_cite");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  }
-</script>
+<div class="container">
 
+  <div class="profile">
+    <img src="./personal_info/yuguangchen.jpg" alt="Yuguang Chen">
+    <div class="profile-info">
+      <h2>Contact</h2>
+      <p>
+        <i class="fa-solid fa-envelope"></i> 
+        <a href="mailto:chenyg59@mail2.sysu.edu.cn">chenyg59@mail2.sysu.edu.cn</a><br>
+        <i class="fa-brands fa-github"></i> 
+        <a href="https://github.com/chenyg59">github.com/chenyg59</a>
+      </p>
+      <p>
+        I am a first-year PhD student in Computer Science and Engineering at 
+        <b><a href="https://www.cse.ust.hk/">HKUST</a></b>, advised by 
+        <b><a href="https://scholar.google.com/citations?user=Ib-sizwAAAAJ&hl=en">Prof. Song Guo</a></b>.  
+        I received my B.Sc. and M.Sc. in Computer Science from Harbin Institute of Technology (HIT).  
+        My research interests include <b>3D content generation</b>, <b>auto-regressive and diffusion models</b>, 
+        and <b>reinforcement learning</b>.
+      </p>
+    </div>
+  </div>
 
-<body> 
-  <div id="layout-content" style="margin-top: 25px;">
-  <table>
-    <tbody>
-    <tr>
-      <td width="670">
-        <div id="toptitle">
-        <h1>Yuguang Chen &nbsp; 陈豫广</h1></div>
-        <h3>Master student</h3>
-        <br>Sun-Yat sen University
-        <br>
-        <br> Email:  
-        <a href="chenyg59@mail2.sysu.edu.cn">chenyg59@mail2.sysu.edu.cn</a>;
-<!--        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="liujian2498065510@gmail.com"> liujian2498065510@gmail.com</a>-->
-        <br> Github: 
-        <a href="https://github.com/chenyg59">https://github.com/chenyg59</a>
-        <br><br></p>
-      </td>
-      <td>
-        <img width="240" height="320" src="./personal_info/yuguangchen.jpg" border="0">
-      </td>
-    </tr>
-    <tr></tr></tbody>
-  </table>
-  <div id="layout-content" style="margin-top: 25px;">
+  <section>
+    <h2>Experience</h2>
+    <ul>
+      <li><b>Apr. 2025 – Present</b>: Research Intern at 
+        <a href="https://hunyuan.tencent.com/">Tencent Hunyuan</a>, working with 
+        <a href="https://whaohan.github.io/">Haohan Weng</a>.
+      </li>
+    </ul>
+  </section>
 
+  <section>
+    <h2>Research</h2>
+    <div class="pub-item">
+      <img src="./personal_info/hunyuan3d_studio.png" alt="Hunyuan3D Studio">
+      <div>
+        <b>Hunyuan3D Studio: End-to-End AI Pipeline for Game-Ready 3D Asset Generation</b><br>
+        <span>Yuguang Chen is one of the core contributors</span><br>
+        [<a href="https://arxiv.org/abs/2509.12815">PDF</a>] 
+        [<a href="https://3d.hunyuan.tencent.com/">Project Page</a>]
+      </div>
+    </div>
+  </section>
 
+  <!-- 可加 Awards 模块 -->
+  <!--
+  <section>
+    <h2>Awards</h2>
+    <ul>
+      <li><b>Outstanding</b> Award, XXX 2024</li>
+    </ul>
+  </section>
+  -->
 
+</div>
 
-<h2>Biography</h2>
+<footer>
+  © 2025 Yuguang Chen. All rights reserved.
+</footer>
 
-<p> 
-  I am a first-year PhD student in Computer Science and Engineering at the Hong Kong University of Science and Technology (HKUST), supervised by <b><a href="https://scholar.google.com/citations?user=Ib-sizwAAAAJ&hl=en">Prof. Song Guo</a></b>. 
-  I received my Bachelor's and Master's degrees in Computer Science and Technology from Harbin Institute of Technology (HIT) in 2022 and 2024, respectively.
-  My research focuses on cutting-edge areas including <strong>3D content generation</strong>, <strong>auto-regressive models and diffusion models</strong>, and <strong>reinforcement learning</strong>.
-</p>
-<h2>Experience</h2>
-<ul>
-  <li>
-    Apr.2025 - Now , <i>Research Intern</i>, <b><a href="https://hunyuan.tencent.com/"> Tencent Hunyuan</a></b>, working closely with <b><a href="https://whaohan.github.io/">Haohan Weng</a></b>
-  </li>
-</ul>
-
-
-
-<!-- <h2>Selected Awards</h2>
-<ul>
-  <li>
-    <b>Outstanding</b> XXX
-  </li>
-</ul> -->
-
-
-
-<h2>Research</h2>
-
-<table class="pub_table">
-  <tbody>
-
-    <tr>
-    <td class="pub_td1"><img src="./personal_info/hunyuan3d_studio.png" class="papericon"></td>
-    <td class="pub_td2"><br><b>Hunyuan3D Studio: End-to-End AI Pipeline for Game-Ready 3D Asset Generation</b>
-      <br>Yuguang Chen is one of the core contributors
-      <br>
-      [<a href="https://arxiv.org/abs/2509.12815">PDF</a>]
-      [<a href="https://3d.hunyuan.tencent.com/">Projects Page</a>]
-
-    </td>
-  </tr>
-
-  </tbody>
-</table>
-
-</div></div></body></html>
+</body>
+</html>
